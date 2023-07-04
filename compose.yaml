@@ -1,8 +1,8 @@
 services:
   db:
-    image: postgres
+    image: ruslanok2/proexe_db
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -11,7 +11,7 @@ services:
     image: ruslanok2/proexe_web
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./app:/usr/src/app
     ports:
       - "8000:8000"
     environment:
@@ -20,3 +20,5 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+volumes:
+    postgres_data:
