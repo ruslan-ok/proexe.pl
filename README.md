@@ -1,12 +1,27 @@
 # proexe.pl
 Test task from the company Proexe.pl
 
-$ git clone https://github.com/ruslan-ok/proexe.pl.git
-$ cd proexe.pl
-$ sudo docker compose up -d --build
-$ sudo docker compose exec web python manage.py makemigrations api
-$ sudo docker compose exec web python manage.py migrate
-$ sudo docker compose exec web python manage.py createsuperuser
+- $ git clone https://github.com/ruslan-ok/proexe.pl.git
+- $ cd proexe.pl
+- $ sudo docker compose up -d --build
+- $ sudo docker compose exec web python manage.py makemigrations api
+- $ sudo docker compose exec web python manage.py migrate
+- $ sudo docker compose exec web python manage.py createsuperuser
+- $ docker commit proexepl-web-1 proexe_web_base
+- $ docker tag proexe_web_base ruslanok2/proexe_web
+- $ docker push ruslanok2/proexe_web
+
+- http://localhost:8000/admin/
+username: admin, password: admin
+- http://localhost:8000/api/table/
+
+Example for "Fields": 
+
+[{"name": "code", "title": "My table code", "type": "string"},
+    {"name": "name", "title": "My table name", "type": "string"},
+    {"name": "value", "title": "Value", "type": "number"},
+    {"name": "active", "title": "Is my table active", "type": "boolean"}
+]
 
 
 Recruitment task description
@@ -14,13 +29,10 @@ The goal is to build a simple backend for a table builder app, where the user ca
 dynamically. The app has the following endpoints:
 
 ## Method - Endpoint - Action
-POST  /api/table  Generate dynamic Django model based on user provided fields types and titles. The field type can be a string, number, or Boolean. HINT: you can use Python type function to generate models on the fly and the schema editor to make schema changes just like the migrations
-
-PUT   /api/table/:id  This end point allows the user to update the structure of dynamically generated model.
-
-POST  /api/table/:id/row  Allows the user to add rows to the dynamically generated model while respecting the model schema
-
-GET   /api/table/:id/rows  Get all the rows in the dynamically generated model
+- POST  /api/table  Generate dynamic Django model based on user provided fields types and titles. The field type can be a string, number, or Boolean. HINT: you can use Python type function to generate models on the fly and the schema editor to make schema changes just like the migrations
+- PUT   /api/table/:id  This end point allows the user to update the structure of dynamically generated model.
+- POST  /api/table/:id/row  Allows the user to add rows to the dynamically generated model while respecting the model schema
+- GET   /api/table/:id/rows  Get all the rows in the dynamically generated model
 
 ## Requirements:
 - You must build this app with Django.
