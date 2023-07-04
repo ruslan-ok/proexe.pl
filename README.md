@@ -4,18 +4,12 @@ Test task from the company Proexe.pl
 - $ git clone https://github.com/ruslan-ok/proexe.pl.git
 - $ cd proexe.pl
 - $ sudo docker compose up -d --build
-- $ sudo docker compose exec web python manage.py makemigrations api
-- $ sudo docker compose exec web python manage.py migrate
-- $ sudo docker compose exec web python manage.py createsuperuser
-- $ docker commit proexepl-web-1 proexe_web_base
-- $ docker tag proexe_web_base ruslanok2/proexe_web
-- $ docker push ruslanok2/proexe_web
 
 - http://localhost:8000/admin/
 username: admin, password: admin
 - http://localhost:8000/api/table/
 
-Example for "Fields": 
+Example value for the "Fields" field:
 
 [{"name": "code", "title": "My table code", "type": "string"},
     {"name": "name", "title": "My table name", "type": "string"},
