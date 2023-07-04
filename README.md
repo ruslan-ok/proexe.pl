@@ -1,6 +1,14 @@
 # proexe.pl
 Test task from the company Proexe.pl
 
+$ git clone https://github.com/ruslan-ok/proexe.pl.git
+$ cd proexe.pl
+$ sudo docker compose up -d --build
+$ sudo docker compose exec web python manage.py makemigrations api
+$ sudo docker compose exec web python manage.py migrate
+$ sudo docker compose exec web python manage.py createsuperuser
+
+
 Recruitment task description
 The goal is to build a simple backend for a table builder app, where the user can build tables
 dynamically. The app has the following endpoints:
