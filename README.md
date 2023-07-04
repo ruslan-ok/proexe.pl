@@ -18,7 +18,7 @@ Example value for the "Fields" field:
 ]
 
 
-Recruitment task description
+## Recruitment task description
 The goal is to build a simple backend for a table builder app, where the user can build tables
 dynamically. The app has the following endpoints:
 
